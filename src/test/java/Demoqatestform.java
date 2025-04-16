@@ -7,8 +7,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -25,13 +27,17 @@ public class Demoqatestform {
     void fillFieldOnForm() {
         open("/automation-practice-form");
 
-        //заполнение формы
+        //Заполнение формы
         $("#firstName").setValue("Oleg");
         $("#lastName").setValue("Safenreiter");
         $("#userEmail").setValue("1234567@gmail.com");
         $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("1234567890");
-        $("#dateOfBirthInput").setValue("29 Nov 2002").pressEnter();
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").shouldBe(visible, Duration.ofSeconds(10));
+        $(".react-datepicker__year-select").selectOption("2002");
+        $(".react-datepicker__month-select").selectOption("November");
+        $(".react-datepicker").$(byText("1")).click();
         $("#subjectsInput").setValue("Biology").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFile(pict);
@@ -40,7 +46,7 @@ public class Demoqatestform {
         $("#react-select-4-input").setValue("Noida").pressEnter();
         $("#submit").click();
 
-        //проверка
+        //Проверки
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $("table").$("tbody").$("tr", 0).$("td", 0).shouldHave(text("Student Name"));
         $("table").$("tbody").$("tr", 0).$("td", 1).shouldHave(text("Oleg Safenreiter"));
@@ -51,7 +57,7 @@ public class Demoqatestform {
         $("table").$("tbody").$("tr", 3).$("td", 0).shouldHave(text("Mobile"));
         $("table").$("tbody").$("tr", 3).$("td", 1).shouldHave(text("1234567890"));
         $("table").$("tbody").$("tr", 4).$("td", 0).shouldHave(text("Date of Birth"));
-        //$("table").$("tbody").$("tr", 4).$("td", 1).shouldHave(text(""));
+        $("table").$("tbody").$("tr", 4).$("td", 1).shouldHave(text("1 November,2002"));
         $("table").$("tbody").$("tr", 5).$("td", 0).shouldHave(text("Subject"));
         $("table").$("tbody").$("tr", 5).$("td", 1).shouldHave(text("Biology"));
         $("table").$("tbody").$("tr", 6).$("td", 0).shouldHave(text("Hobbies"));
