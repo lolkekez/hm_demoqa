@@ -23,7 +23,7 @@ public class Demoqatestform {
     }
 
     @Test
-    void fillFieldOnForm() {
+    void fillFieldOnFormTest() {
         open("/automation-practice-form");
 
         //Заполнение формы
