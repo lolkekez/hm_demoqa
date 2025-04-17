@@ -15,7 +15,6 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class Demoqatestform {
-    File pict = new File("src/resources/img.jpg");
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
@@ -40,34 +39,24 @@ public class Demoqatestform {
         $(".react-datepicker").$(byText("1")).click();
         $("#subjectsInput").setValue("Biology").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFile(pict);
+        $("#uploadPicture").uploadFromClasspath("img.jpg");
         $("#currentAddress").setValue("street 123");
         $("#react-select-3-input").setValue("NCR").pressEnter();
         $("#react-select-4-input").setValue("Noida").pressEnter();
         $("#submit").click();
 
-        //Проверки
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $("table").$("tbody").$("tr", 0).$("td", 0).shouldHave(text("Student Name"));
-        $("table").$("tbody").$("tr", 0).$("td", 1).shouldHave(text("Oleg Safenreiter"));
-        $("table").$("tbody").$("tr", 1).$("td", 0).shouldHave(text("Student Email"));
-        $("table").$("tbody").$("tr", 1).$("td", 1).shouldHave(text("1234567@gmail.com"));
-        $("table").$("tbody").$("tr", 2).$("td", 0).shouldHave(text("Gender"));
-        $("table").$("tbody").$("tr", 2).$("td", 1).shouldHave(text("Male"));
-        $("table").$("tbody").$("tr", 3).$("td", 0).shouldHave(text("Mobile"));
-        $("table").$("tbody").$("tr", 3).$("td", 1).shouldHave(text("1234567890"));
-        $("table").$("tbody").$("tr", 4).$("td", 0).shouldHave(text("Date of Birth"));
-        $("table").$("tbody").$("tr", 4).$("td", 1).shouldHave(text("1 November,2002"));
-        $("table").$("tbody").$("tr", 5).$("td", 0).shouldHave(text("Subject"));
-        $("table").$("tbody").$("tr", 5).$("td", 1).shouldHave(text("Biology"));
-        $("table").$("tbody").$("tr", 6).$("td", 0).shouldHave(text("Hobbies"));
-        $("table").$("tbody").$("tr", 6).$("td", 1).shouldHave(text("Sports"));
-        $("table").$("tbody").$("tr", 7).$("td", 0).shouldHave(text("Picture"));
-        $("table").$("tbody").$("tr", 7).$("td", 1).shouldHave(text("img.jpg"));
-        $("table").$("tbody").$("tr", 8).$("td", 0).shouldHave(text("Address"));
-        $("table").$("tbody").$("tr", 8).$("td", 1).shouldHave(text("street 123"));
-        $("table").$("tbody").$("tr", 9).$("td", 0).shouldHave(text("State and City"));
-        $("table").$("tbody").$("tr", 9).$("td", 1).shouldHave(text("NCR Noida"));
+        //Проверка
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Oleg Safenreiter"));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("1234567@gmail.com"));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("1234567890"));
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("1 November,2002"));
+        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Biology"));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports"));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("img.jpg"));
+        $(".table-responsive").$(byText("Address")).parent().shouldHave(text("street 123"));
+        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("NCR Noida"));
+
 
     }
 }

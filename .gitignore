@@ -4,14 +4,9 @@ build/
 !**/src/test/**
 .DS_Store
 
- ### IntelliJ IDEA ###
- .idea
- *.iws
- *.iml
- *.ipr
+*.iws
+*.iml
+*.ipr
+*.gradle/*
 
- ### Gradle ###
- .gradle
-
- ### Logs ###
- *.log
+*.log
