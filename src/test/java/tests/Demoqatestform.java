@@ -1,3 +1,5 @@
+package tests;
+
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
@@ -56,6 +58,13 @@ public class Demoqatestform {
         $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("img.jpg"));
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text("street 123"));
         $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("NCR Noida"));
+    }
+
+    @Test
+    void negativeTest() {
+        open("/automation-practice-form");
+
+        $("#submit").click();
 
 
     }
