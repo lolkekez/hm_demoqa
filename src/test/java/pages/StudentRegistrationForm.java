@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import pages.Components.CalendarComponent;
 
+import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -12,6 +13,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class StudentRegistrationForm {
 
     CalendarComponent calendarComponent = new CalendarComponent();
+
     private SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             emailInput = $("#userEmail"),
@@ -29,7 +31,6 @@ public class StudentRegistrationForm {
     public StudentRegistrationForm openPage(){
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        Configuration.pageLoadStrategy = "eager";
 
         return this;
     }
@@ -124,11 +125,4 @@ public class StudentRegistrationForm {
 
         return this;
     }
-
-    public StudentRegistrationForm checkResult(String key, String value){
-        $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
-
-        return this;
-    }
-
 }
