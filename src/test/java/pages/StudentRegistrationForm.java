@@ -1,10 +1,8 @@
 package pages;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
-import pages.Components.CalendarComponent;
+import pages.components.CalendarComponent;
 
-import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -12,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class StudentRegistrationForm {
 
-    CalendarComponent calendarComponent = new CalendarComponent();
+    private CalendarComponent calendarComponent = new CalendarComponent();
 
     private SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -26,7 +24,8 @@ public class StudentRegistrationForm {
             currentAddressInput = $("#currentAddress"),
             stateInput = $("#react-select-3-input"),
             cityInput = $("#react-select-4-input"),
-            submitButton = $("#submit");
+            submitButton = $("#submit"),
+            dateInput = $("#dateOfBirthInput");
 
     public StudentRegistrationForm openPage(){
         open("/automation-practice-form");
@@ -121,7 +120,8 @@ public class StudentRegistrationForm {
     }
 
     public StudentRegistrationForm setDate(String month, String years, String day){
-        calendarComponent.prepareDataCalendar(month, years, day);
+        dateInput.click();
+        calendarComponent.setDateIntoCalendar(month, years, day);
 
         return this;
     }

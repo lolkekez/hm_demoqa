@@ -1,7 +1,6 @@
-package pages.Components;
+package pages.components;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.StudentRegistrationForm;
 
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;
