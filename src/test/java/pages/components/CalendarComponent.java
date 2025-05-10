@@ -1,4 +1,4 @@
-package pages.Components;
+package pages.components;
 
 import java.time.Duration;
 
@@ -8,8 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CalendarComponent {
 
-    public CalendarComponent prepareDataCalendar(String month, String years, String day){
-        $("#dateOfBirthInput").click();
+    public CalendarComponent setDateIntoCalendar(String month, String years, String day){
         $(".react-datepicker__month-select").shouldBe(visible, Duration.ofSeconds(10));
         $(".react-datepicker__year-select").selectOption(years);
         $(".react-datepicker__month-select").selectOption(month);

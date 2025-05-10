@@ -1,10 +1,7 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.support.ui.Sleeper;
-import pages.Components.ResultCheckComponent;
+import pages.components.ResultCheckComponent;
 import pages.StudentRegistrationForm;
 public class DemoqaTestFormWithPageObjects extends BaseTest {
 
