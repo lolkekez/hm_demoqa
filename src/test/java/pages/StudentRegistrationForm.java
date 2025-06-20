@@ -52,20 +52,8 @@ public class StudentRegistrationForm {
         return this;
     }
 
-    public StudentRegistrationForm setGenderMaleRadio(){
-        genderRadio.$(byText("Male")).click();
-
-        return this;
-    }
-
-    public StudentRegistrationForm setGenderFemaleRadio(){
-        genderRadio.$(byText("Female")).click();
-
-        return this;
-    }
-
-    public StudentRegistrationForm setGenderOtherRadio(){
-        genderRadio.$(byText("Other")).click();
+    public StudentRegistrationForm setGenderRadio(String value){
+        genderRadio.$(byText(value)).click();
 
         return this;
     }
@@ -89,8 +77,8 @@ public class StudentRegistrationForm {
         return this;
     }
 
-    public StudentRegistrationForm setPicture(){
-        uploadPictureButton.uploadFromClasspath("img.jpg");
+    public StudentRegistrationForm setPicture(String value){
+        uploadPictureButton.uploadFromClasspath(value);
 
         return this;
     }
