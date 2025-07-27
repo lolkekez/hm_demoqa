@@ -14,12 +14,12 @@ public class DemoqaTestFormWithPageObjects extends BaseTest {
                 .setFirstNameInput("Oleg")
                 .setLastNameInput("Safenreiter")
                 .setEmailInput("olegsafenreiter@qaguru.com")
-                .setGenderMaleRadio()
+                .setGenderRadio("Male")
                 .setUserNumberInput("1234567890")
                 .setDate("November", "2002", "1")
                 .setSubjectsInput("Biology")
                 .setHobbiesCheckBox("Music")
-                .setPicture()
+                .setPicture("img.jpg")
                 .setCurrentAddressInput("Street 123")
                 .setStateInput("NCR")
                 .setCityInput("Noida")
@@ -42,7 +42,7 @@ public class DemoqaTestFormWithPageObjects extends BaseTest {
         studentRegistrationForm.openPage()
                 .setFirstNameInput("1")
                 .setLastNameInput("1")
-                .setGenderFemaleRadio()
+                .setGenderRadio("Female")
                 .setUserNumberInput("1234567890")
                 .touchSubmitButton();
 
