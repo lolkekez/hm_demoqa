@@ -29,6 +29,7 @@ public class DemoqaRemoteTest extends RemoteBaseTest{
     @BeforeAll
     static void setUp() {
         Configuration.remote = "https://" + SELENOID_LOGIN + ":" + SELENOID_PASSWORD + "@"+ SELENOID_URL + "/wd/hub";
+        Configuration.baseUrl = "https://demoqa.com";
     }
 
     @Test
