@@ -62,8 +62,22 @@ tasks.withType(Test) {
     }
 }
 
+
+
+task positive_demoqa_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("Positive")
+    }
+}
+
+task negative_demoqa_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("Negative")
+    }
+}
+
 task demoqa_tests(type: Test) {
     useJUnitPlatform {
-        includeTags("PageObjects_remote")
+        includeTags("demoqa_tests")
     }
 }
