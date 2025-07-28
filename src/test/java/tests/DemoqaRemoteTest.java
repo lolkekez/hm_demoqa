@@ -19,9 +19,26 @@ import static io.qameta.allure.Allure.step;
 @Tag("demoqa_tests")
 public class DemoqaRemoteTest extends RemoteBaseTest{
 
-
     StudentRegistrationForm studentRegistrationForm = new StudentRegistrationForm();
     ResultCheckComponent resultCheckComponent = new ResultCheckComponent();
+
+    private static final String SELENOID_URL = System.getProperty("selenoid.url");
+    private static final String SELENOID_LOGIN = System.getProperty("selenoid.login");;
+    private static final String SELENOID_PASSWORD = System.getProperty("selenoid.password");
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.remote = "https://" + SELENOID_LOGIN + ":" + SELENOID_PASSWORD + SELENOID_URL + "/wd/hub";
+    }
+
+    @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.addVideo();
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+
+    }
 
     @Test
     @Tag("Positive")
