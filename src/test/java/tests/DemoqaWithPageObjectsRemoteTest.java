@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import pages.components.ResultCheckComponent;
 import pages.StudentRegistrationForm;
 
+
 @Tag("Demoqa_with_PageObjects_Remote")
 public class DemoqaWithPageObjectsRemoteTest {
 
@@ -19,7 +20,7 @@ public class DemoqaWithPageObjectsRemoteTest {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 10000;
-        Configuration.remote = "https://user1:1234@selenoid.autotest.cloud/wd/hub";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 
     @Test
