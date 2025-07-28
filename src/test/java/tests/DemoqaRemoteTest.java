@@ -33,6 +33,10 @@ public class DemoqaRemoteTest {
     @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
+        Attach.addVideo();
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+
     }
 
     @Test
