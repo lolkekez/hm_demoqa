@@ -27,8 +27,8 @@ allure {
 
 dependencies {
     testImplementation(
-            'com.codeborne:selenide:7.5.0',
-            'org.junit.jupiter:junit-jupiter:5.9.3',
+            'com.codeborne:selenide:6.19.1',
+            'org.junit.jupiter:junit-jupiter:5.10.0',
             'commons-io:commons-io:2.19.0',
             'com.github.javafaker:javafaker:1.0.2',
             'com.codeborne:pdf-test:1.5.0',
