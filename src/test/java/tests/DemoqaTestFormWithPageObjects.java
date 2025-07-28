@@ -59,6 +59,7 @@ public class DemoqaTestFormWithPageObjects extends BaseTest {
     void negativeExampleTest(){
         studentRegistrationForm.openPage()
                 .touchSubmitButton();
+
         resultCheckComponent.checkNegativeResult();
     }
 }

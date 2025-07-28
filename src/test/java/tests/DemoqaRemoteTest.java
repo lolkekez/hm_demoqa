@@ -16,8 +16,7 @@ import java.util.Map;
 
 import static io.qameta.allure.Allure.step;
 
-
-@Tag("PageObjects_remote")
+@Tag("demoqa_tests")
 public class DemoqaRemoteTest extends RemoteBaseTest{
 
 
@@ -25,6 +24,7 @@ public class DemoqaRemoteTest extends RemoteBaseTest{
     ResultCheckComponent resultCheckComponent = new ResultCheckComponent();
 
     @Test
+    @Tag("Positive")
     void successFullRegistrationTest(){
 
         step("Open form", () -> {
@@ -62,6 +62,7 @@ public class DemoqaRemoteTest extends RemoteBaseTest{
     }
 
     @Test
+    @Tag("Positive")
     void minimumDataOnFormTest(){
         studentRegistrationForm.openPage()
                 .setFirstNameInput("1")
@@ -78,6 +79,7 @@ public class DemoqaRemoteTest extends RemoteBaseTest{
     }
 
     @Test
+    @Tag("Negative")
     void negativeExampleTest(){
         studentRegistrationForm.openPage()
                 .touchSubmitButton();
