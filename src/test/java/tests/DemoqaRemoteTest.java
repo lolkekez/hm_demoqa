@@ -82,6 +82,5 @@ public class DemoqaRemoteTest extends RemoteBaseTest{
         studentRegistrationForm.openPage()
                 .touchSubmitButton();
         step("Проверка результатов", () -> {resultCheckComponent.checkNegativeResult();});
-        resultCheckComponent.checkNegativeResult();
     }
 }
