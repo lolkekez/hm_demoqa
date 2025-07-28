@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selenide.*;
 
-@Tag("Junit tests")
+@Tag("Junit_tests")
 public class JunitTest {
     @BeforeEach
     void setUp() {

@@ -17,7 +17,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-@Tag("Clean selenide")
+@Tag("Demoqa_clear_selenide")
 public class Demoqatestform {
     @BeforeAll
     static void beforeAll() {
