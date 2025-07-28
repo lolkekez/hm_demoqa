@@ -18,37 +18,11 @@ import static io.qameta.allure.Allure.step;
 
 
 @Tag("PageObjects_remote")
-public class DemoqaRemoteTest {
+public class DemoqaRemoteTest extends RemoteBaseTest{
 
 
     StudentRegistrationForm studentRegistrationForm = new StudentRegistrationForm();
     ResultCheckComponent resultCheckComponent = new ResultCheckComponent();
-
-    @BeforeAll
-    static void setUp() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.timeout = 10000;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
-        Configuration.browserCapabilities = capabilities;
-
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
-
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.addVideo();
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-
-    }
 
     @Test
     void successFullRegistrationTest(){
@@ -95,17 +69,19 @@ public class DemoqaRemoteTest {
                 .setGenderRadio("Female")
                 .setUserNumberInput("1234567890")
                 .touchSubmitButton();
+        step("Проверка результатов", () -> {resultCheckComponent
 
-        resultCheckComponent
                 .checkResult("Student Name", "1 1")
                 .checkResult("Gender", "Female")
                 .checkResult("Mobile", "1234567890");
+        });
     }
 
     @Test
     void negativeExampleTest(){
         studentRegistrationForm.openPage()
                 .touchSubmitButton();
+        step("Проверка результатов", () -> {resultCheckComponent.checkNegativeResult();});
         resultCheckComponent.checkNegativeResult();
     }
 }
