@@ -64,6 +64,6 @@ tasks.withType(Test) {
 
 task demoqa_tests(type: Test) {
     useJUnitPlatform {
-        includeTags("Demoqa_clear_selenide")
+        includeTags("Simple_Junit")
     }
 }
