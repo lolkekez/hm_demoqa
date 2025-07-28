@@ -28,16 +28,7 @@ public class DemoqaRemoteTest extends RemoteBaseTest{
 
     @BeforeAll
     static void setUp() {
-        Configuration.remote = "https://" + SELENOID_LOGIN + ":" + SELENOID_PASSWORD + SELENOID_URL + "/wd/hub";
-    }
-
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.addVideo();
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-
+        Configuration.remote = "https://" + SELENOID_LOGIN + ":" + "@" +SELENOID_PASSWORD + SELENOID_URL + "/wd/hub";
     }
 
     @Test
