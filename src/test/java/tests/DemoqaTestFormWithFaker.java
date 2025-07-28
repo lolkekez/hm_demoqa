@@ -1,10 +1,12 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.components.ResultCheckComponent;
 import pages.StudentRegistrationForm;
 import utils.DataFaker;
 
+@Tag("Tests with Faker")
 public class DemoqaTestFormWithFaker extends BaseTest {
 
 

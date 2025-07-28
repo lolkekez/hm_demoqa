@@ -15,10 +15,20 @@ dependencies {
     )
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 }
 
-test {
-    useJUnitPlatform()
+    task demoqa_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("Simple Junit")
+    }
 }
