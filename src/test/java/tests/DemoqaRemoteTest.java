@@ -9,7 +9,7 @@ import pages.StudentRegistrationForm;
 
 
 @Tag("PageObjects_remote")
-public class DemoqaWithPageObjectsRemoteTest {
+public class DemoqaRemoteTest {
 
 
     StudentRegistrationForm studentRegistrationForm = new StudentRegistrationForm();
