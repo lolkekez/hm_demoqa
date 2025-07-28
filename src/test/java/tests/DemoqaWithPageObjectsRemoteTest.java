@@ -8,7 +8,7 @@ import pages.components.ResultCheckComponent;
 import pages.StudentRegistrationForm;
 
 
-@Tag("Demoqa_with_PageObjects_Remote")
+@Tag("PageObjects_remote")
 public class DemoqaWithPageObjectsRemoteTest {
 
 
