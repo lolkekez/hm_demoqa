@@ -6,7 +6,7 @@ import pages.components.ResultCheckComponent;
 import pages.StudentRegistrationForm;
 import utils.DataFaker;
 
-@Tag("Tests with Faker")
+@Tag("Demoqa_with_Faker")
 public class DemoqaTestFormWithFaker extends BaseTest {
 
 

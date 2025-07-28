@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import pages.components.ResultCheckComponent;
 import pages.StudentRegistrationForm;
 
-@Tag("Tests with PageObjects")
+@Tag("Demoqa_with_PageObjects")
 public class DemoqaTestFormWithPageObjects extends BaseTest {
 
     StudentRegistrationForm studentRegistrationForm = new StudentRegistrationForm();
